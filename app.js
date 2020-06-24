@@ -24,6 +24,7 @@ app.use("/loginmethods", loginMethodsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
   next(createError(404));
 });
 
