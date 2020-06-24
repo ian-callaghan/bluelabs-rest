@@ -6,6 +6,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var loginMethodsRouter = require("./routes/loginMethods");
+var cors = require("cors");
 
 var app = express();
 
@@ -24,7 +25,7 @@ app.use("/loginmethods", loginMethodsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  cors();
   next(createError(404));
 });
 
