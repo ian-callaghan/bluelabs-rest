@@ -26,7 +26,6 @@ app.use("/loginmethods", loginMethodsRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   cors();
-  next(createError(404));
 });
 
 // error handler
