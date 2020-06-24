@@ -16,6 +16,14 @@ router.get("/", function (req, res, next) {
         id,
         competition,
         name,
+        markets {
+            type,
+            outcomes {
+                name,
+                odds,
+                status
+            }
+        },
         region,
         startTime,
         status
@@ -27,7 +35,7 @@ router.get("/", function (req, res, next) {
 
   fetch({
     query,
-    variables: { input: {} },
+    variables: { input: { first: 10, marketTypes: ["MATCH_WINNER"] } },
   })
     .then((r) => {
       console.log(r);
