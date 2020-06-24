@@ -3,10 +3,10 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var cors = require("cors");
 
 var indexRouter = require("./routes/index");
 var loginMethodsRouter = require("./routes/loginMethods");
-var cors = require("cors");
 
 var app = express();
 
@@ -14,6 +14,7 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -25,7 +26,7 @@ app.use("/loginmethods", loginMethodsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  cors();
+  next(createError(404));
 });
 
 // error handler
