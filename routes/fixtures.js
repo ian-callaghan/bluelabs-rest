@@ -35,7 +35,7 @@ router.get("/", function (req, res, next) {
 
   fetch({
     query,
-    variables: { input: { first: 10, marketTypes: ["MATCH_WINNER"] } },
+    variables: { input: { marketTypes: ["MATCH_WINNER"] } },
   })
     .then((r) => {
       console.log(r);
