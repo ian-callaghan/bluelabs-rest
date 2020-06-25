@@ -32,10 +32,13 @@ router.get("/", function (req, res, next) {
     }
   }
 `;
-  console.log(req.params);
+
+  const { first, after } = req.query;
   fetch({
     query,
-    variables: { input: { ...req.params } },
+    variables: {
+      input: { marketTypes: ["MATCH_WINNER"], first: parseInt(first), after },
+    },
   })
     .then((r) => {
       console.log(r);
