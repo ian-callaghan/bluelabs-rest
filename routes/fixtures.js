@@ -13,20 +13,12 @@ router.get("/", function (req, res, next) {
   query FootballFixtures($input: FixturesInput!) {
     fixtures(input: $input) {
       fixtures {
-        id,
-        competition,
-        name,
         markets {
-            type,
             outcomes {
                 name,
                 odds,
-                status
             }
         },
-        region,
-        startTime,
-        status
       },
       cursor
     }
