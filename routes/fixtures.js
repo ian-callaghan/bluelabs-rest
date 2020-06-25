@@ -32,10 +32,10 @@ router.get("/", function (req, res, next) {
     }
   }
 `;
-
+  console.log(req.params);
   fetch({
     query,
-    variables: { input: { marketTypes: ["MATCH_WINNER"] } },
+    variables: { input: { ...req.params } },
   })
     .then((r) => {
       console.log(r);
